@@ -1,4 +1,80 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: Serde
+repo_name: serde
+repo_url: "https://github.com/serde-rs/serde"
 theme:
   name: material
+  language: en
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.indexes
+    - navigation.expand
+    - navigation.tracking
+    - navigation.top
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+nav:
+  - Overview: README.md
+  - Help: help.md
+  - Serde data model: data-model.md
+  - Using derive: derive.md
+  - Attributes: 
+      - attributes/index.md
+      - Container attributes: attributes/container-attrs.md
+      - Variant attributes: attributes/variant-attrs.md
+      - Field attributes: attributes/field-attrs.md
+  - Custom serialization:
+      - custom-serialization/index.md
+      - Implementing Serialize: custom-serialization/impl-serialize.md
+      - Implementing Deserialize: custom-serialization/impl-deserialize.md
+      - Unit testing: custom-serialization/unit-testing.md
+  - Writing a data format:
+    - data-format/index.md
+    - Conventions: data-format/conventions.md
+    - Error handling: data-format/error-handling.md
+    - Implementing a Serializer: data-format/impl-serializer.md
+    - Implementing a Deserializer: data-format/impl-deserializer.md
+  - Deserializer lifetimes: lifetimes.md
+  - Examples:
+    - examples/index.md
+    - Structs and enums in JSON: examples/json.md
+    - Enum representations: examples/enum-representations.md
+    - Default value for a field: examples/attr-default.md
+    - Struct flattening: examples/attr-flatten.md
+    - Handwritten generic type bounds: examples/attr-bound.md
+    - Deserialize for custom map type: examples/deserialize-map.md
+    - Array of values without buffering: examples/stream-array.md
+    - Serialize enum as number: examples/enum-number.md
+    - Serialize fields as camelCase: examples/attr-rename.md
+    - Skip serializing field: examples/attr-skip-serializing.md
+    - Derive for remote crate: examples/remote-derive.md
+    - Manually deserialize struct: examples/deserialize-struct.md
+    - Discarding data: examples/ignored-any.md
+    - Transcode into another format: examples/transcode.md
+    - Either string or struct: examples/string-or-struct.md
+    - Convert error types: examples/convert-error.md
+    - Custom date format: examples/custom-date-format.md
+  - No-std support: no-std.md
+  - Feature flags: feature-flags.md
