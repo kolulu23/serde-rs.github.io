@@ -3,6 +3,9 @@ name: CI
 on:
   push:
   pull_request:
+    branches:
+     - master
+     - main
   schedule: [cron: "40 1 * * *"]
 
 permissions:
